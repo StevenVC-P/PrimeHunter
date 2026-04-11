@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from residue_view_experiment import MAX_RECORD_CENTERS, default_output_path, parse_primes, validate_range
+from scripts.tools.residue_view_experiment import MAX_RECORD_CENTERS, default_output_path, parse_primes, validate_range
 from primehunter.tools.residue_view import (
     MAX_TRACKED_PRIMES,
     analyze_residue_view_range,
@@ -93,3 +93,4 @@ class ResidueViewTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

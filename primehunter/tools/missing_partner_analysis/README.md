@@ -1,4 +1,4 @@
-﻿# Missing Partner Analysis Tool
+# Missing Partner Analysis Tool
 
 ## Purpose
 
@@ -11,7 +11,7 @@ It focuses only on centers where exactly one side is prime and the other side is
 - `primehunter/tools/missing_partner_analysis/`
   Tool package.
 
-- `missing_partner_analysis_experiment.py`
+- `scripts/tools/missing_partner_analysis_experiment.py`
   Local runner for generating test output.
 
 ## Status
@@ -25,25 +25,25 @@ It focuses only on centers where exactly one side is prime and the other side is
 Default run:
 
 ```powershell
-python missing_partner_analysis_experiment.py
+python -m scripts.tools.missing_partner_analysis_experiment
 ```
 
 Run a smaller range:
 
 ```powershell
-python missing_partner_analysis_experiment.py --start-n 1 --end-n 20
+python -m scripts.tools.missing_partner_analysis_experiment --start-n 1 --end-n 20
 ```
 
 Run in summary-only mode:
 
 ```powershell
-python missing_partner_analysis_experiment.py --start-n 1 --end-n 1000000 --summary-only
+python -m scripts.tools.missing_partner_analysis_experiment --start-n 1 --end-n 1000000 --summary-only
 ```
 
 Write to a custom path:
 
 ```powershell
-python missing_partner_analysis_experiment.py --start-n 1 --end-n 50 --output outputs/missing_partner_analysis/sample.json
+python -m scripts.tools.missing_partner_analysis_experiment --start-n 1 --end-n 50 --output outputs/missing_partner_analysis/sample.json
 ```
 
 ## Output
@@ -77,3 +77,5 @@ This tool is considered successful at the current stage when it:
 - writes valid structured JSON
 - returns only one-prime/one-composite center cases in full-record mode
 - correctly summarizes missing-partner counts and disruptor frequencies
+
+

@@ -1,4 +1,4 @@
-﻿# Center Analysis Tool
+# Center Analysis Tool
 
 ## Purpose
 
@@ -11,7 +11,7 @@ It analyzes twin-prime centers of the form `6n`, evaluates the left and right ca
 - `primehunter/tools/center_analysis/`
   Tool package.
 
-- `center_analysis_experiment.py`
+- `scripts/tools/center_analysis_experiment.py`
   Local runner for generating test output.
 
 ## Status
@@ -25,25 +25,25 @@ It analyzes twin-prime centers of the form `6n`, evaluates the left and right ca
 Default run:
 
 ```powershell
-python center_analysis_experiment.py
+python -m scripts.tools.center_analysis_experiment
 ```
 
 Run a smaller range:
 
 ```powershell
-python center_analysis_experiment.py --start-n 1 --end-n 20
+python -m scripts.tools.center_analysis_experiment --start-n 1 --end-n 20
 ```
 
 Run in summary-only mode:
 
 ```powershell
-python center_analysis_experiment.py --start-n 1 --end-n 1000000 --summary-only
+python -m scripts.tools.center_analysis_experiment --start-n 1 --end-n 1000000 --summary-only
 ```
 
 Write to a custom path:
 
 ```powershell
-python center_analysis_experiment.py --start-n 1 --end-n 50 --output outputs/center_analysis/sample.json
+python -m scripts.tools.center_analysis_experiment --start-n 1 --end-n 50 --output outputs/center_analysis/sample.json
 ```
 
 ## Output
@@ -85,3 +85,5 @@ This tool is considered successful at the current stage when it:
 - writes valid structured JSON
 - follows the canonical center record shape
 - correctly computes classifications and smallest disruptors
+
+

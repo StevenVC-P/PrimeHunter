@@ -1,8 +1,8 @@
-﻿import json
+import json
 import unittest
 from pathlib import Path
 
-from center_analysis_experiment import (
+from scripts.tools.center_analysis_experiment import (
     MAX_RECORD_CENTERS,
     default_output_path,
     validate_range,
@@ -84,3 +84,4 @@ class CenterAnalysisTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

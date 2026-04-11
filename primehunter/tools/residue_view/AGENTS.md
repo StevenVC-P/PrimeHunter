@@ -46,15 +46,15 @@ This tool should remain a derived view rather than a second foundational analysi
 
 Human/dev runner:
 
-- `residue_view_experiment.py`
+- `scripts/tools/residue_view_experiment.py`
 
 Current command examples:
 
 ```powershell
-python residue_view_experiment.py
-python residue_view_experiment.py --start-n 1 --end-n 20
-python residue_view_experiment.py --start-n 1 --end-n 20 --primes 5,7,13
-python residue_view_experiment.py --start-n 1 --end-n 1000000 --summary-only
+python -m scripts.tools.residue_view_experiment
+python -m scripts.tools.residue_view_experiment --start-n 1 --end-n 20
+python -m scripts.tools.residue_view_experiment --start-n 1 --end-n 20 --primes 5,7,13
+python -m scripts.tools.residue_view_experiment --start-n 1 --end-n 1000000 --summary-only
 ```
 
 ## Limits
@@ -99,3 +99,5 @@ Any future extension should answer:
 - does it keep custom tracked primes as a bounded inspection input rather than an unbounded analysis dimension
 - does it avoid drifting into generic wheel-engine or sieve-layer design
 - does it remain locally testable before any API work begins
+
+

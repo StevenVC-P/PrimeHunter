@@ -31,11 +31,11 @@ The project includes a simple script for generating a master list of known prime
 
 Current script:
 
-- [primes.py](d:\Primehunter\primes.py)
+- [primes.py](d:\Primehunter\scripts\reference\primes.py)
 
 Current output:
 
-- [primes_master_10000.txt](d:\Primehunter\primes_master_10000.txt)
+- [primes_master_10000.txt](d:\Primehunter\outputs\reference\primes_master_10000.txt)
 
 Right now, `primes.py` writes the master list of primes below `10,000`. This gives the project a baseline reference list that experiments can compare against.
 
@@ -45,12 +45,12 @@ The repo now contains multiple experiment scripts so different rule sets can be 
 
 Current experiment scripts:
 
-- [euclid_experiment.py](d:\Primehunter\euclid_experiment.py)
-- [euclid_square_free_experiment.py](d:\Primehunter\euclid_square_free_experiment.py)
-- [euclid_square_free_no_factor_experiment.py](d:\Primehunter\euclid_square_free_no_factor_experiment.py)
-- [reciprocal_cycle_experiment.py](d:\Primehunter\reciprocal_cycle_experiment.py)
-- [run_experiment.py](d:\Primehunter\run_experiment.py)
-- [compare_modes.py](d:\Primehunter\compare_modes.py)
+- [euclid_experiment.py](d:\Primehunter\scripts\research\euclid_experiment.py)
+- [euclid_square_free_experiment.py](d:\Primehunter\scripts\research\euclid_square_free_experiment.py)
+- [euclid_square_free_no_factor_experiment.py](d:\Primehunter\scripts\research\euclid_square_free_no_factor_experiment.py)
+- [reciprocal_cycle_experiment.py](d:\Primehunter\scripts\research\reciprocal_cycle_experiment.py)
+- [run_experiment.py](d:\Primehunter\scripts\research\run_experiment.py)
+- [compare_modes.py](d:\Primehunter\scripts\research\compare_modes.py)
 
 These scripts all start from the seed `[2]` and currently test discoveries below `1000`, but they differ in how strict the construction rules are.
 
@@ -58,11 +58,11 @@ These scripts all start from the seed `[2]` and currently test discoveries below
 
 Script:
 
-- [reciprocal_cycle_experiment.py](d:\Primehunter\reciprocal_cycle_experiment.py)
+- [reciprocal_cycle_experiment.py](d:\Primehunter\scripts\research\reciprocal_cycle_experiment.py)
 
 Shared helper module:
 
-- [reciprocal_cycle_utils.py](d:\Primehunter\reciprocal_cycle_utils.py)
+- [reciprocal_cycle_utils.py](d:\Primehunter\primehunter\compat\reciprocal_cycle_utils.py)
 
 This experiment studies reciprocal cycle behavior for each prime `p > 3` in user-selected bases.
 
@@ -106,7 +106,7 @@ Terminal summary includes:
 
 Script:
 
-- [euclid_experiment.py](d:\Primehunter\euclid_experiment.py)
+- [euclid_experiment.py](d:\Primehunter\scripts\research\euclid_experiment.py)
 
 Rules:
 
@@ -132,7 +132,7 @@ Output file:
 
 Script:
 
-- [euclid_square_free_experiment.py](d:\Primehunter\euclid_square_free_experiment.py)
+- [euclid_square_free_experiment.py](d:\Primehunter\scripts\research\euclid_square_free_experiment.py)
 
 Rules:
 
@@ -154,7 +154,7 @@ Output file:
 
 Script:
 
-- [euclid_square_free_no_factor_experiment.py](d:\Primehunter\euclid_square_free_no_factor_experiment.py)
+- [euclid_square_free_no_factor_experiment.py](d:\Primehunter\scripts\research\euclid_square_free_no_factor_experiment.py)
 
 Rules:
 
@@ -178,7 +178,7 @@ The project already has shared helper files so logic is not duplicated between s
 
 ### Prime helpers
 
-- [prime_utils.py](d:\Primehunter\prime_utils.py)
+- [prime_utils.py](d:\Primehunter\primehunter\compat\prime_utils.py)
 
 This file contains reusable low-level prime utilities:
 
@@ -188,7 +188,7 @@ This file contains reusable low-level prime utilities:
 
 ### Reciprocal cycle helpers
 
-- [reciprocal_cycle_utils.py](d:\Primehunter\reciprocal_cycle_utils.py)
+- [reciprocal_cycle_utils.py](d:\Primehunter\primehunter\compat\reciprocal_cycle_utils.py)
 
 This file contains reusable reciprocal-cycle utilities:
 
@@ -200,7 +200,7 @@ This file contains reusable reciprocal-cycle utilities:
 
 ### Euclid experiment helpers
 
-- [euclid_utils.py](d:\Primehunter\euclid_utils.py)
+- [euclid_utils.py](d:\Primehunter\primehunter\compat\euclid_utils.py)
 
 This file contains the shared Euclid-style experiment engine:
 
@@ -216,7 +216,7 @@ This means new experiments can be added with small wrapper scripts instead of re
 
 The project now includes a unified command-line runner:
 
-- [run_experiment.py](d:\Primehunter\run_experiment.py)
+- [run_experiment.py](d:\Primehunter\scripts\research\run_experiment.py)
 
 This runner supports:
 
@@ -234,7 +234,7 @@ It can write:
 
 The project also now includes a side-by-side mode comparison tool:
 
-- [compare_modes.py](d:\Primehunter\compare_modes.py)
+- [compare_modes.py](d:\Primehunter\scripts\research\compare_modes.py)
 
 That script can run multiple experiment modes with the same seed and limit and generate a comparison summary in text or JSON form.
 
@@ -247,7 +247,7 @@ It can also now generate both formats at once, so one command can produce:
 
 The project already contains a comparison write-up for the three current experiment modes:
 
-- [euclid_experiment_comparison.md](d:\Primehunter\euclid_experiment_comparison.md)
+- [euclid_experiment_comparison.md](d:\Primehunter\docs\research\euclid_experiment_comparison.md)
 
 That document summarizes:
 
@@ -291,17 +291,20 @@ Natural next improvements for this repo would be:
 
 Current commands:
 
-- `python primes.py`
-- `python euclid_experiment.py`
-- `python euclid_square_free_experiment.py`
-- `python euclid_square_free_no_factor_experiment.py`
-- `python reciprocal_cycle_experiment.py --bases 6,12 --limit 1000 --format json`
-- `python reciprocal_cycle_experiment.py --bases 10 --limit 1000 --format csv`
-- `python reciprocal_cycle_experiment.py --limit 1000 --format all --output reciprocal_cycles`
-- `python reciprocal_cycle_experiment.py --bases 6,12,18 --limit 200 --include-expansions --format json`
-- `python run_experiment.py --mode full --seed 2 --limit 1000`
-- `python run_experiment.py --mode square_free_factor --seed 2,3 --limit 5000 --format json`
-- `python compare_modes.py --seed 2 --limit 1000`
-- `python compare_modes.py --seed 2 --limit 1000 --format all --output comparison_bundle`
+- `python -m scripts.reference.primes`
+- `python -m scripts.research.euclid_experiment`
+- `python -m scripts.research.euclid_square_free_experiment`
+- `python -m scripts.research.euclid_square_free_no_factor_experiment`
+- `python -m scripts.research.reciprocal_cycle_experiment --bases 6,12 --limit 1000 --format json`
+- `python -m scripts.research.reciprocal_cycle_experiment --bases 10 --limit 1000 --format csv`
+- `python -m scripts.research.reciprocal_cycle_experiment --limit 1000 --format all --output reciprocal_cycles`
+- `python -m scripts.research.reciprocal_cycle_experiment --bases 6,12,18 --limit 200 --include-expansions --format json`
+- `python -m scripts.research.run_experiment --mode full --seed 2 --limit 1000`
+- `python -m scripts.research.run_experiment --mode square_free_factor --seed 2,3 --limit 5000 --format json`
+- `python -m scripts.research.compare_modes --seed 2 --limit 1000`
+- `python -m scripts.research.compare_modes --seed 2 --limit 1000 --format all --output comparison_bundle`
 
 These generate the current reference file and experiment reports in the project root.
+
+
+

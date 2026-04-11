@@ -1,4 +1,4 @@
-﻿# PrimeHunter Tools
+# PrimeHunter Tools
 
 Each tool should keep two local docs in its own folder:
 
@@ -7,6 +7,8 @@ Each tool should keep two local docs in its own folder:
 
 - `AGENTS.md`
   Deeper AI-agent review and implementation context.
+
+Tool runners live under `scripts/tools/` and should be invoked with `python -m ...`.
 
 Current tools:
 

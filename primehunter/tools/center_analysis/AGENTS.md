@@ -1,4 +1,4 @@
-﻿# Center Analysis Tool Review Guide
+# Center Analysis Tool Review Guide
 
 ## Why This Tool Exists
 
@@ -57,15 +57,15 @@ It does not yet cover:
 
 Human/dev runner:
 
-- `center_analysis_experiment.py`
+- `scripts/tools/center_analysis_experiment.py`
 
 Current command examples:
 
 ```powershell
-python center_analysis_experiment.py
-python center_analysis_experiment.py --start-n 1 --end-n 12
-python center_analysis_experiment.py --start-n 1 --end-n 1000000 --summary-only
-python center_analysis_experiment.py --start-n 1 --end-n 100 --output outputs/center_analysis/twin_center_analysis.json
+python -m scripts.tools.center_analysis_experiment
+python -m scripts.tools.center_analysis_experiment --start-n 1 --end-n 12
+python -m scripts.tools.center_analysis_experiment --start-n 1 --end-n 1000000 --summary-only
+python -m scripts.tools.center_analysis_experiment --start-n 1 --end-n 100 --output outputs/center_analysis/twin_center_analysis.json
 ```
 
 ## Limits
@@ -107,3 +107,5 @@ Any future extension should answer:
 - does it belong inside this tool or in a later tool
 - does it preserve the v1 center-first contract
 - does it still produce locally testable structured output
+
+

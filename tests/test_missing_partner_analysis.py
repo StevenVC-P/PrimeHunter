@@ -1,8 +1,8 @@
-﻿import json
+import json
 import unittest
 from pathlib import Path
 
-from missing_partner_analysis_experiment import (
+from scripts.tools.missing_partner_analysis_experiment import (
     MAX_RECORD_CENTERS,
     default_output_path,
     validate_range,
@@ -98,3 +98,4 @@ class MissingPartnerAnalysisTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

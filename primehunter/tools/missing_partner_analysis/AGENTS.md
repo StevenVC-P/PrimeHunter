@@ -1,4 +1,4 @@
-﻿# Missing Partner Analysis Review Guide
+# Missing Partner Analysis Review Guide
 
 ## Why This Tool Exists
 
@@ -51,14 +51,14 @@ This tool should remain derived from canonical center-analysis records rather th
 
 Human/dev runner:
 
-- `missing_partner_analysis_experiment.py`
+- `scripts/tools/missing_partner_analysis_experiment.py`
 
 Current command examples:
 
 ```powershell
-python missing_partner_analysis_experiment.py
-python missing_partner_analysis_experiment.py --start-n 1 --end-n 20
-python missing_partner_analysis_experiment.py --start-n 1 --end-n 1000000 --summary-only
+python -m scripts.tools.missing_partner_analysis_experiment
+python -m scripts.tools.missing_partner_analysis_experiment --start-n 1 --end-n 20
+python -m scripts.tools.missing_partner_analysis_experiment --start-n 1 --end-n 1000000 --summary-only
 ```
 
 ## Limits
@@ -95,3 +95,5 @@ Any future extension should answer:
 - does it preserve dependency on the canonical center-analysis model
 - does it avoid drifting into a second implementation of the center-analysis foundation
 - does it remain locally testable before any API work begins
+
+

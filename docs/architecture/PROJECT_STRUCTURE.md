@@ -1,6 +1,6 @@
-﻿# PrimeHunter Project Structure
+# PrimeHunter Project Structure
 
-PrimeHunter now uses a project layout that separates code, documentation, generated artifacts, and future test coverage.
+PrimeHunter uses a project layout that separates code, runnable scripts, documentation, generated artifacts, and tests.
 
 ## Root Layout
 
@@ -17,10 +17,10 @@ PrimeHunter now uses a project layout that separates code, documentation, genera
   - Generated experiment artifacts and export files.
 
 - `scripts/`
-  - Reserved for future helper scripts, automation, or developer tooling.
+  - Runnable entry points grouped by purpose.
 
 - `tests/`
-  - Reserved for automated test coverage.
+  - Automated test coverage.
 
 ## Package Layout
 
@@ -32,6 +32,23 @@ PrimeHunter now uses a project layout that separates code, documentation, genera
 
 - `primehunter/data/`
   - Export, reporting, and structured output helpers.
+
+- `primehunter/tools/`
+  - Canonical v1 tool packages.
+
+- `primehunter/compat/`
+  - Compatibility wrappers for older imports.
+
+## Scripts Layout
+
+- `scripts/tools/`
+  - Local runners for the current PrimeHunter v1 tools.
+
+- `scripts/research/`
+  - Euclid and reciprocal-cycle experiment entry points.
+
+- `scripts/reference/`
+  - Reference-data generators.
 
 ## Docs Layout
 
@@ -55,23 +72,39 @@ PrimeHunter now uses a project layout that separates code, documentation, genera
 - `outputs/comparisons/`
   - Cross-mode and comparison outputs.
 
+- `outputs/center_analysis/`
+  - Center-analysis tool outputs.
+
+- `outputs/missing_partner_analysis/`
+  - Missing-partner tool outputs.
+
+- `outputs/residue_view/`
+  - Residue-view tool outputs.
+
 ## Entry Points
 
-The current root-level Python files remain as simple CLI entry points so the existing workflow stays easy:
+Runnable scripts now live under `scripts/` instead of the repository root:
 
-- `primes.py`
-- `run_experiment.py`
-- `compare_modes.py`
-- `euclid_experiment.py`
-- `euclid_square_free_experiment.py`
-- `euclid_square_free_no_factor_experiment.py`
-- `reciprocal_cycle_experiment.py`
+- `scripts/reference/primes.py`
+- `scripts/tools/center_analysis_experiment.py`
+- `scripts/tools/missing_partner_analysis_experiment.py`
+- `scripts/tools/residue_view_experiment.py`
+- `scripts/research/run_experiment.py`
+- `scripts/research/compare_modes.py`
+- `scripts/research/euclid_experiment.py`
+- `scripts/research/euclid_square_free_experiment.py`
+- `scripts/research/euclid_square_free_no_factor_experiment.py`
+- `scripts/research/reciprocal_cycle_experiment.py`
 
 ## Rule For New Work
 
 1. Put pure math utilities in `primehunter/math_core/`.
 2. Put modeling and experiment logic in `primehunter/analysis/`.
 3. Put exporters and report writers in `primehunter/data/`.
-4. Put narrative docs in `docs/`.
-5. Put generated data in `outputs/`.
-6. Add tests in `tests/` as new tools stabilize.
+4. Put canonical v1 tools in `primehunter/tools/`.
+5. Put compatibility wrappers in `primehunter/compat/`.
+6. Put runnable entry points in `scripts/`, not the repo root.
+7. Put narrative docs in `docs/`.
+8. Put generated data in `outputs/`.
+9. Add tests in `tests/` as new tools stabilize.
+

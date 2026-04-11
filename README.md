@@ -11,6 +11,12 @@ PrimeHunter currently supports two main research directions:
 - Euclid-style prime discovery experiments
 - Reciprocal-cycle analysis across primes and bases
 
+PrimeHunter also now includes the first v1 tool-family runners for:
+
+- twin center analysis
+- missing partner analysis
+- residue-view analysis
+
 These tools are meant for exploration and structural investigation rather than replacing optimized production prime-generation algorithms.
 
 ## Project Layout
@@ -26,6 +32,12 @@ These tools are meant for exploration and structural investigation rather than r
 - `primehunter/data/`
   Exporters and report writers for text, JSON, and CSV outputs.
 
+- `primehunter/tools/`
+  Canonical v1 tool packages.
+
+- `primehunter/compat/`
+  Compatibility wrappers retained for older import paths.
+
 ### Supporting folders
 
 - `docs/`
@@ -35,28 +47,48 @@ These tools are meant for exploration and structural investigation rather than r
   Generated experiment artifacts.
 
 - `tests/`
-  Reserved for automated coverage as the math tools stabilize.
+  Automated coverage for current tools and analysis helpers.
 
 - `scripts/`
-  Reserved for helper tooling and developer automation.
+  Runnable entry points grouped by purpose.
+
+## Script Layout
+
+- `scripts/tools/`
+  Local runners for the current PrimeHunter v1 tools.
+
+- `scripts/research/`
+  Older Euclid and reciprocal-cycle experiment runners.
+
+- `scripts/reference/`
+  Reference-data generators such as the master prime list writer.
 
 ## Available Entry Points
 
-- `primes.py`
+- `scripts/reference/primes.py`
   Writes a canonical reference list of primes below a chosen limit.
 
-- `run_experiment.py`
+- `scripts/tools/center_analysis_experiment.py`
+  Runs canonical twin-center analysis.
+
+- `scripts/tools/missing_partner_analysis_experiment.py`
+  Runs missing-partner analysis.
+
+- `scripts/tools/residue_view_experiment.py`
+  Runs the residue-view analysis tool.
+
+- `scripts/research/run_experiment.py`
   Unified CLI for Euclid-style experiment modes.
 
-- `compare_modes.py`
+- `scripts/research/compare_modes.py`
   Compares Euclid-style modes side by side.
 
-- `reciprocal_cycle_experiment.py`
+- `scripts/research/reciprocal_cycle_experiment.py`
   Studies multiplicative order and reciprocal-cycle structure across primes.
 
-- `euclid_experiment.py`
-- `euclid_square_free_experiment.py`
-- `euclid_square_free_no_factor_experiment.py`
+- `scripts/research/euclid_experiment.py`
+- `scripts/research/euclid_square_free_experiment.py`
+- `scripts/research/euclid_square_free_no_factor_experiment.py`
   Thin mode-specific wrappers retained for convenience.
 
 ## Quick Start
@@ -66,10 +98,13 @@ Create or activate a virtual environment, then run any of the project entry poin
 Example commands:
 
 ```powershell
-python primes.py
-python run_experiment.py --mode full --seed 2 --limit 1000 --format json
-python compare_modes.py --seed 2 --limit 1000 --format all
-python reciprocal_cycle_experiment.py --bases 6,12 --limit 1000 --format json
+python -m scripts.reference.primes
+python -m scripts.tools.center_analysis_experiment --start-n 1 --end-n 100
+python -m scripts.tools.missing_partner_analysis_experiment --start-n 1 --end-n 100
+python -m scripts.tools.residue_view_experiment --start-n 1 --end-n 100 --primes 5,7,11
+python -m scripts.research.run_experiment --mode full --seed 2 --limit 1000 --format json
+python -m scripts.research.compare_modes --seed 2 --limit 1000 --format all
+python -m scripts.research.reciprocal_cycle_experiment --bases 6,12 --limit 1000 --format json
 ```
 
 Generated outputs are written under `outputs/` by default:
@@ -78,6 +113,9 @@ Generated outputs are written under `outputs/` by default:
 - `outputs/euclid/`
 - `outputs/reciprocal_cycles/`
 - `outputs/comparisons/`
+- `outputs/center_analysis/`
+- `outputs/missing_partner_analysis/`
+- `outputs/residue_view/`
 
 ## Example Research Questions
 
@@ -96,3 +134,4 @@ Generated outputs are written under `outputs/` by default:
 ## Status
 
 PrimeHunter is still in an exploratory stage. The current codebase is organized for growth, and the next steps are expected to add more math tools, more experiments, and stronger automated tests.
+

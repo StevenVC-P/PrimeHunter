@@ -19,7 +19,7 @@ The experiments differ in two choices:
 ### 1. Repeated primes allowed; factor composite results
 
 Script:
-`python euclid_experiment.py`
+`python -m scripts.research.euclid_experiment`
 
 Output:
 `primes_output.txt`
@@ -43,7 +43,7 @@ Interpretation:
 ### 2. Square-free only; factor composite results
 
 Script:
-`python euclid_square_free_experiment.py`
+`python -m scripts.research.euclid_square_free_experiment`
 
 Output:
 `primes_square_free_output.txt`
@@ -71,7 +71,7 @@ Interpretation:
 ### 3. Square-free only; prime results only
 
 Script:
-`python euclid_square_free_no_factor_experiment.py`
+`python -m scripts.research.euclid_square_free_no_factor_experiment`
 
 Output:
 `primes_square_free_no_factor_output.txt`
@@ -133,3 +133,5 @@ That version recovers every prime below `1000` in this test.
 - At what limit does the square-free with factorization version begin to miss a larger percentage?
 - Which missing primes in the square-free version require repeated-factor constructions most directly?
 - Can the outputs be grouped by discovery mechanism: direct prime hit vs. composite factor reveal?
+
+

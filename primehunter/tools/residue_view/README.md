@@ -13,7 +13,7 @@ It is not a wheel system, not a generalized sieve engine, and not a modular-anal
 - `primehunter/tools/residue_view/`
   Tool package.
 
-- `residue_view_experiment.py`
+- `scripts/tools/residue_view_experiment.py`
   Local runner for generating test output.
 
 ## Status
@@ -27,25 +27,25 @@ It is not a wheel system, not a generalized sieve engine, and not a modular-anal
 Default run:
 
 ```powershell
-python residue_view_experiment.py
+python -m scripts.tools.residue_view_experiment
 ```
 
 Run a smaller range:
 
 ```powershell
-python residue_view_experiment.py --start-n 1 --end-n 20
+python -m scripts.tools.residue_view_experiment --start-n 1 --end-n 20
 ```
 
 Inspect a small custom tracked-prime list:
 
 ```powershell
-python residue_view_experiment.py --start-n 1 --end-n 20 --primes 5,7,13
+python -m scripts.tools.residue_view_experiment --start-n 1 --end-n 20 --primes 5,7,13
 ```
 
 Run in summary-only mode:
 
 ```powershell
-python residue_view_experiment.py --start-n 1 --end-n 1000000 --summary-only
+python -m scripts.tools.residue_view_experiment --start-n 1 --end-n 1000000 --summary-only
 ```
 
 ## Output
@@ -83,3 +83,5 @@ This tool is considered successful at the current stage when it:
 - reports residue values for both sides
 - identifies simple small-prime elimination on composite sides only
 - summarizes left/right eliminations by tracked prime
+
+

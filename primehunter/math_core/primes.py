@@ -50,6 +50,29 @@ def prime_factors(n):
     return factors
 
 
+def smallest_prime_factor(n):
+    """Return the smallest prime factor of n, or None when n is prime."""
+    if n <= 1:
+        raise ValueError("n must be greater than 1.")
+    if is_prime(n):
+        return None
+    return prime_factors(n)[0]
+
+
+def prime_factorization(n):
+    """Return the canonical prime factorization of n."""
+    if n <= 1:
+        raise ValueError("n must be greater than 1.")
+    if is_prime(n):
+        return [n]
+    return prime_factors(n)
+
+
+def generate_primes(limit):
+    """Return primes below limit."""
+    return all_primes_below(limit)
+
+
 def parse_seed_primes(seed_text):
     """Parse a comma-separated seed string into validated prime integers."""
     if seed_text is None:

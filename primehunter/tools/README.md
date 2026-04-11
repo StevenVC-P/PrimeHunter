@@ -12,3 +12,4 @@ Current tools:
 
 - `center_analysis/`
 - `missing_partner_analysis/`
+- `residue_view/`
